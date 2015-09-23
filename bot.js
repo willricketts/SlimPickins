@@ -16,6 +16,12 @@ client.addListener('message', function(from, to, message) {
       client.say('#funhole', '$' + res.rate);
     });
   }
+  else if(message == "DOGE") {
+    request('http://dogecoinaverage.com/BTC.json', function(err, response, body) {
+      var res = JSON.parse(body);
+      client.say('#funhole', '$' + res.markets[0].price);
+    })
+  }
 });
 
 client.addListener('error', function(message) {
