@@ -12,5 +12,9 @@
     "freenode"
   ],
   "author": "Will Ricketts",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "dependencies": {
+    "irc": "^0.3.12",
+    "request": "^2.63.0"
+  }
 }
