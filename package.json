@@ -1,0 +1,16 @@
+{
+  "name": "slimpickins",
+  "version": "1.0.0",
+  "description": "IRC Bot for #funhole on Freenode",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "IRC",
+    "bot",
+    "freenode"
+  ],
+  "author": "Will Ricketts",
+  "license": "GPL-3.0"
+}
