@@ -1,24 +1,20 @@
 var irc = require('irc');
 var request = require('request');
 
+var actions = require('./actions/actions');
+
 var client = new irc.Client(process.env.IRC_SERVER_HOST, 'Slim', {
   channels: ['#funhole']
 });
 
 client.addListener('message', function(from, to, message) {
   console.log(from + ' => ' + to + ': ' + message);
-  
+
   if(message == 'BTC') {
-    request("https://bitpay.com/api/rates/usd", function(err, response, body) {
-      var res = JSON.parse(body);
-      client.say('#funhole', '$' + res.rate);
-    });
+    actions.cryptocurrencies.bitcoin();
   }
   else if(message == "DOGE") {
-    request('http://dogecoinaverage.com/BTC.json', function(err, response, body) {
-      var res = JSON.parse(body);
-      client.say('#funhole', 'Ƀ ' + res.markets[0].price);
-    })
+    actions.cryptocurrencies.dogecoin();
   }
 });
 
