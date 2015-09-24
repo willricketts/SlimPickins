@@ -3,6 +3,8 @@ module.exports = {
   dogecoin: dogecoin
 };
 
+var client = require('../bot.js').client;
+
 function bitcoin() {
   request("https://bitpay.com/api/rates/usd", function(err, response, body) {
     var res = JSON.parse(body);

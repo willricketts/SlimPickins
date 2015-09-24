@@ -16,8 +16,15 @@ client.addListener('message', function(from, to, message) {
   else if(message == "DOGE") {
     actions.cryptocurrencies.dogecoin();
   }
+  else if(message == '!donate') {
+    client.say('#funhole', process.env.BTC_DONATION_WALLET);
+  }
 });
 
 client.addListener('error', function(message) {
     console.log('error: ', message);
 });
+
+module.exports = {
+  client: client
+};
