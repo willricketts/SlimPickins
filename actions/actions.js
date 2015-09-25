@@ -1,5 +1,7 @@
 var cryptocurrencies = require('./cryptocurrencies');
+var greetings = require('./greetings');
 
 module.exports = {
-  cryptocurrencies: cryptocurrencies
+  cryptocurrencies: cryptocurrencies,
+  greetings: greetings
 };

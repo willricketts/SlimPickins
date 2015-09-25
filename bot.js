@@ -19,6 +19,9 @@ client.addListener('message', function(from, to, message) {
   else if(message == '!donate') {
     client.say('#funhole', process.env.BTC_DONATION_WALLET);
   }
+  else if(message == ('hi slim' || 'hello slim' || 'sup slim' || 'slim')) {
+    actions.greeting(from);
+  }
 });
 
 client.addListener('error', function(message) {

@@ -3,6 +3,7 @@ module.exports = {
   dogecoin: dogecoin
 };
 
+var request = require('request');
 var client = require('../bot.js').client;
 
 function bitcoin() {
@@ -14,7 +15,7 @@ function bitcoin() {
 function dogecoin() {
   getDogecoinPrice(function(dogecoinPrice) {
     getBitcoinPrice(function(bitcoinPrice) {
-      client.say('#funhole', '$' + (dogecoinPrice * bitcoinPrice));
+      client.say('#funhole', '$' + (Math.round((dogecoinPrice * bitcoinPrice) * 100) / 100);
     });
   });
 }
