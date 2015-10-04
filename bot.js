@@ -9,18 +9,23 @@ var client = new irc.Client(process.env.IRC_SERVER_HOST, 'Slim', {
 
 client.addListener('message', function(from, to, message) {
   console.log(from + ' => ' + to + ': ' + message);
-
-  if(message == 'BTC') {
-    actions.cryptocurrencies.bitcoin();
-  }
-  else if(message == "DOGE") {
-    actions.cryptocurrencies.dogecoin();
-  }
-  else if(message == '!donate') {
-    client.say('#funhole', process.env.BTC_DONATION_WALLET);
-  }
-  else if(message == ('hi slim' || 'hello slim' || 'sup slim' || 'slim')) {
-    actions.greeting(from);
+  
+  switch(message) {
+    case 'BTC':
+      actions.cryptocurrencies.bitcoin();
+      break;
+    
+    case 'DOGE':
+      actions.cryptocurrencies.dogecoin();
+      break;
+      
+    case: '!donate':
+      client.say('#funhole', process.env.BTC_DONATION_WALLET);
+      break;
+    
+    case: 'Slim':
+      actions.greeting(from);
+      break;
   }
 });
 
